@@ -2,7 +2,8 @@ package mastermind.views;
 
 enum Messages 
 {
-    TITLE("\n ----- MASTERMIND -----\n"),
+    TITLE("\n ----- MASTERMIND ----- "),
+    ATTEMPS(" attempt(s):"),
     PROPOSE("Propose a combination: "),
     WINNER("You have won :-)"),
     LOOSER("You have lost :-("),

@@ -19,7 +19,7 @@ public class Game {
         this.results = new Result[NUM_MAX_ATTEMPTS];
     }
 
-    public int currentAttempt() {
+    public int getCurrentAttempt() {
         return attempts;
     }
 
@@ -28,22 +28,22 @@ public class Game {
     }
 
 	public void saveCombination(String combination) {
-        this.combinations[this.currentAttempt()] = new Combination();
-        this.combinations[this.currentAttempt()].asignColors(combination);
+        this.combinations[this.getCurrentAttempt()] = new Combination();
+        this.combinations[this.getCurrentAttempt()].asignColors(combination);
     }   
     
     public void verifyProposal() {
-        this.results[this.currentAttempt()] = new Result();
-        this.results[this.currentAttempt()].verify(this.secretCombination, this.combinations[attempts]);
+        this.results[this.getCurrentAttempt()] = new Result();
+        this.results[this.getCurrentAttempt()].verify(this.secretCombination, this.combinations[attempts]);
         this.increaseAttempts();
     }
 
     public boolean isWinner() {
-        return this.results[this.currentAttempt() - 1].isWinner();
+        return this.results[this.getCurrentAttempt() - 1].isWinner();
     }
 
     public boolean isCompleted() {
-        return this.currentAttempt() == NUM_MAX_ATTEMPTS;
+        return this.getCurrentAttempt() == NUM_MAX_ATTEMPTS;
     }
 
     public int numberOfBlacksAttempt(int attempt) {
