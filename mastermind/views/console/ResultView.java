@@ -1,6 +1,7 @@
-package mastermind.views;
+package mastermind.views.console;
 
 import mastermind.models.Game;
+import mastermind.views.Message;
 import mastermind.utils.Console;
 
 public class ResultView {
@@ -18,7 +19,7 @@ public class ResultView {
     }
     
 	public void showHeader() {
-        console.outln("\n" + Integer.toString(this.game.getCurrentAttempt()) + Messages.ATTEMPS.getMessage());
+        console.outln("\n" + Integer.toString(this.game.getCurrentAttempt()) + Message.ATTEMPS.getMessage());
 		console.outln(this.secretCombinationView.show());
 	}
     

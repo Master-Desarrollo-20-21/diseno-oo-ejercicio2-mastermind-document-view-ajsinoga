@@ -3,7 +3,7 @@ package mastermind.views;
 import mastermind.models.Error;
 import mastermind.utils.Console;
 
-class ErrorView {
+public class ErrorView {
     
     private static final String[] MESSAGES = { 
 		"Wrong proposed combination length",
@@ -16,7 +16,7 @@ class ErrorView {
 		this.error = error;
 	}
 
-	void writeln() {
+	public void writeln() {
 		if (!error.isNull()){
 			Console.getInstance().outln(ErrorView.MESSAGES[this.error.ordinal()]);
 		}

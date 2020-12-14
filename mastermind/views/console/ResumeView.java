@@ -1,6 +1,7 @@
-package mastermind.views;
+package mastermind.views.console;
 
 import mastermind.models.Game;
+import mastermind.views.Message;
 import mastermind.utils.YesNoDialog;
 
 public class ResumeView {
@@ -12,7 +13,7 @@ public class ResumeView {
 	}
 
 	public boolean isPlayingAgain() {
-		boolean newGame = new YesNoDialog().read(Messages.RESUME.getMessage());
+		boolean newGame = new YesNoDialog().read(Message.RESUME.getMessage());
         if (newGame) {
 			this.game.reset();
 		}

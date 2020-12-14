@@ -1,6 +1,6 @@
 package mastermind.views;
 
-enum Messages 
+public enum Message 
 {
     TITLE("\n ----- MASTERMIND ----- "),
     ATTEMPS(" attempt(s):"),
@@ -9,12 +9,12 @@ enum Messages
     LOOSER("You have lost :-("),
     WRONGLENGHT("Wrong proposed combination length"),
     WRONGCOLOR("Wrong colors, they must be: rbygop"),
-    RESUME("RESUME"), 
-    SECRET("The secret combination was: ");  
+    RESUME("RESUME"),
+    SECRET("The secret combination was: ");
 
     private String message;
-    
-    Messages(String message) {
+
+    Message(String message) {
         this.message = message;
     }
 

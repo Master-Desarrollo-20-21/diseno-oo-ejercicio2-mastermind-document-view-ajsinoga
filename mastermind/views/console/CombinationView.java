@@ -1,9 +1,10 @@
-package mastermind.views;
+package mastermind.views.console;
 
 import mastermind.models.Game;
 import mastermind.models.Combination;
 import mastermind.models.Color;
 import mastermind.models.Error;
+import mastermind.views.ErrorView;
 import mastermind.utils.Console;
 
 public class CombinationView {

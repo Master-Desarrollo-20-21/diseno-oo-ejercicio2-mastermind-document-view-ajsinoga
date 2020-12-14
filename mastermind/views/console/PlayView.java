@@ -1,6 +1,7 @@
-package mastermind.views;
+package mastermind.views.console;
 
 import mastermind.models.Game;
+import mastermind.views.Message;
 import mastermind.utils.Console;
 
 public class PlayView {
@@ -20,10 +21,10 @@ public class PlayView {
 	}
 
 	public void interact() {
-		console.outln(Messages.TITLE.getMessage());
+		console.outln(Message.TITLE.getMessage());
 		this.resultView.showHeader();		
 		do {			
-			this.game.saveCombination(this.combinationView.read(Messages.PROPOSE.getMessage()));
+			this.game.saveCombination(this.combinationView.read(Message.PROPOSE.getMessage()));
 			this.game.verifyProposal();
 			this.resultView.showResult();									
 		} while (!isGameFinished());
@@ -31,12 +32,12 @@ public class PlayView {
 
 	private boolean isGameFinished() {
 		if (this.game.isWinner()) {
-			console.outln(Messages.WINNER.getMessage());;
+			console.outln(Message.WINNER.getMessage());;
 			return true;
 		} 
 		if (this.game.isCompleted()) {
-			console.outln(Messages.LOOSER.getMessage());
-			console.outln(Messages.SECRET.getMessage() + this.secretCombinationView.showDecrypted());
+			console.outln(Message.LOOSER.getMessage());
+			console.outln(Message.SECRET.getMessage() + this.secretCombinationView.showDecrypted());
 			return true;
 		}
 		return false;

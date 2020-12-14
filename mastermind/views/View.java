@@ -2,19 +2,21 @@ package mastermind.views;
 
 import mastermind.models.Game;
 
-public class View {
+public abstract class View {
 
-    private PlayView playView;
-    private ResumeView resumeView;
+    protected Game game;
 
     public View(Game game) {       
-        this.playView = new PlayView(game);
-        this.resumeView = new ResumeView(game);
+        this.game = game;
     }
 
     public void interact() {        
         do {            
-            this.playView.interact();
-        } while (this.resumeView.isPlayingAgain());
+            this.play();
+        } while (this.isNewGame());
     }
+
+    protected abstract void play();
+    
+    protected abstract boolean isNewGame();
 }
