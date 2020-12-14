@@ -7,37 +7,36 @@ public class PlayView {
 
 	private Game game;
 	private CombinationView combinationView;
+	private SecretCombinationView secretCombinationView;
 	private ResultView resultView;
 	private Console console;
 
 	public PlayView(Game game) {
 		this.game = game;		
-		this.combinationView = new CombinationView(this.game);
-		this.resultView = new ResultView(this.game);
+		this.combinationView = new CombinationView(game);
+		this.secretCombinationView = new SecretCombinationView(game);
+		this.resultView = new ResultView(game);
 		this.console = Console.getInstance();
 	}
 
 	public void interact() {
-		this.showTitle();
+		console.outln(Messages.TITLE.getMessage());
 		this.resultView.showHeader();		
 		do {			
 			this.game.saveCombination(this.combinationView.read(Messages.PROPOSE.getMessage()));
 			this.game.verifyProposal();
 			this.resultView.showResult();									
 		} while (!isGameFinished());
-	}
-
-	private void showTitle() {
-		console.outln(Messages.TITLE.getMessage());
-	}
+	}	
 
 	private boolean isGameFinished() {
 		if (this.game.isWinner()) {
-			this.resultView.showWinnerMessage();
+			console.outln(Messages.WINNER.getMessage());;
 			return true;
 		} 
 		if (this.game.isCompleted()) {
-			this.resultView.showLooserMessage();
+			console.outln(Messages.LOOSER.getMessage());
+			console.outln(Messages.SECRET.getMessage() + this.secretCombinationView.showDecrypted());
 			return true;
 		}
 		return false;
